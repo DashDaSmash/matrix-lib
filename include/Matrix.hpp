@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <iostream>
+#include <optional>
 
 class Matrix
 {
@@ -20,6 +21,10 @@ public:
     Matrix(const Matrix &) = delete;
     Matrix &operator=(const Matrix &) = delete;
 
+    Matrix(Matrix&& other) noexcept;
+
+    Matrix& operator=(Matrix&& other) noexcept;
+
     size_t rows() const
     {
         return rows_;
@@ -36,6 +41,8 @@ public:
 
     double& operator()(size_t rows, size_t cols);
     const double& operator()(size_t rows, size_t cols) const;
+
+    std::optional<double> at(size_t row, size_t col) const;
 
     void print() const;
 };
