@@ -1,6 +1,30 @@
-# MatrixLib
+# Modern C++ Smart Pointer & Matrix Library (MatrixLib)
 
-A C++20 matrix operations library and executable built using CMake.
+A modern **C++20 learning project** designed to demonstrate safe dynamic memory management, RAII (Resource Acquisition Is Initialization), smart pointers, and zero overhead abstractions built using CMake.
+
+> **Note:** This repository is built as an educational step by step project to master modern C++ concepts like `std::unique_ptr`, move semantics (`std::move`), and safe buffer allocations without manual `delete[]` calls.
+
+---
+
+## Key Concepts Learned & Covered
+
+* **Smart Pointers:** Managing dynamic heap memory safely using `std::unique_ptr<double[]>`.
+* **RAII:** Tying heap resources to object scopes to prevent memory leaks automatically.
+* **Contiguous Memory Layout:** Mapping 2D matrix indices `(row, col)` onto a flat 1D allocation for cache performance.
+* **Modern Build Systems:** Using CMake to configure cross-platform target builds.
+
+---
+
+## Project Structure
+
+```text
+matrix_lib/
+├── CMakeLists.txt     # CMake configuration file
+├── include/
+│   └── Matrix.hpp     # Matrix class declaration
+└── src/
+    ├── Matrix.cpp     # Matrix class implementation
+    └── main.cpp       # Test driver application
 
 ## Prerequisites
 
