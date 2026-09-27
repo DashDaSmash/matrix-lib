@@ -4,6 +4,7 @@
 #include <memory>
 #include <iostream>
 #include <optional>
+#include <span>
 
 class Matrix
 {
@@ -43,6 +44,12 @@ public:
     const double& operator()(size_t rows, size_t cols) const;
 
     std::optional<double> at(size_t row, size_t col) const;
+
+    std::span<double> getRowView(size_t row);
+    std::span<const double> getRowView(size_t row) const;
+
+    Matrix& operator+=(double scalar);
+    Matrix& operator*=(double scalar);
 
     void print() const;
 };

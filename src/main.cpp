@@ -52,6 +52,30 @@ int main()
         std::cout << "Element at (5,5): Out of bounds (Returned std::nullopt)!\n";
     }
 
+
+    std::cout << "\nstd::span Views & Arithmetic Demo\n\n";
+
+    Matrix mat(3, 3);
+
+    std::cout << "Initialize matrix and apply scalar += 2.0\n";
+    mat += 2.0;
+    mat.print();
+
+    std::cout << "\nApply scalar *= 3.0\n";
+    mat *= 3.0;
+    mat.print();
+
+    std::cout << "\nExtracting row 1 as std::span and modifying elements\n";
+    std::span<double> row1 = mat.getRowView(1);
+
+    for (double& val : row1) {
+        val = 99.0;
+    }
+
+    std::cout << "Matrix after modifying Row 1 via std::span view:\n";
+    mat.print();
+
+
     std::cout << "Exiting scope. Memory will be cleaned up automatically by std::unique_ptr\n";
     return 0;
 }
